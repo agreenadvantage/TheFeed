@@ -1,0 +1,26 @@
+/*
+for eggshell: #fffee7 (can also be used as an overlay when hovering over buttons)
+for purple:   #ab18a5 fading to #e901a5 (from bottom to top)
+for yellow:   #ffba00 fading to #ffe700
+for blue:     #0ea7ae fading to #00e2c6
+*/
+/*:root {
+--bg: rgba(0, 0, 0, 0.3);
+--text: #fffee7;
+--title: #17bbc2;
+--border: #e901a5;
+--link: #00e2c6;
+--link-visited: #e901a5;
+--nav-item-bg-hover: #ffba00;
+}*/
+
+@font-face {
+    font-family: beanbag;
+    src:  local("Yanone Kaffeesatz-Regular"),
+          url(./fonts/YanoneKaffeesatz-Regular.ttf);
+}
+
+
+body {
+  background: url(https://i.imgur.com/poa77tE.jpg) no-repeat center center fixed;
+}

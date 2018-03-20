@@ -1,0 +1,48 @@
+version: "2"
+
+services:
+
+  bigpicture-front:
+    build: ./bigpicture-front/
+    user: node
+    volumes:
+      - ./bigpicture-front/app/:/var/www/app/
+    environment:
+      - NODE_ENV=development
+    ports:
+      - 8080:8080
+
+  bigpicture-server:
+    build: ./bigpicture-server/
+    user: node
+    environment:
+      - NODE_ENV=development
+      - TEST_EMAIL=
+    ports:
+      - 1223:8080
+    volumes:
+      - ./bigpicture-server/app/:/var/www/app/
+    depends_on:
+      - mongo
+      - redis
+    logging:
+      driver: json-file
+      options:
+        max-size: "200k"
+        max-file: "10"
+
+  mongo:
+    image: mongo:3.2.12
+    logging:
+      driver: json-file
+      options:
+        max-size: "200k"
+        max-file: "10"
+
+  redis:
+    image: redis:3.2.9-alpine
+    logging:
+      driver: json-file
+      options:
+        max-size: "200k"
+        max-file: "10"
